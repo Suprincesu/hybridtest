@@ -14,9 +14,16 @@
             <p>Coach : {{coach}}</p>    
         </ion-col>
         <ion-col>
-          PlaceHolder
+          
         </ion-col>
       </ion-row>
+      <ion-item>
+        <ion-label>Date Filter:</ion-label>
+        <ion-toggle [(ngModel)]="useDateFilter"></ion-toggle>
+        <ion-datetime displayFormat="M/D/YYYY" pickerFormat="M/D/YYYY" 
+        [(ngModel)]="dateFilter" (ionChange)="dateChanged()"
+        [(disabled)]="!useDateFilter"></ion-datetime>
+      </ion-item>
     </ion-card-content>
   </ion-card>
 
