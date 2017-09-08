@@ -1,12 +1,40 @@
 <ion-header>
 
-  <ion-navbar color="primary">
-    <ion-title>{{team.name}}</ion-title>
+  <ion-navbar >
   </ion-navbar>
 
 </ion-header>
 
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+      <ion-row>
+        <ion-col>
+            <h2>Record:{{wins}}-{{losses}}</h2>   
+            <p>Coach : {{coach}}</p>    
+        </ion-col>
+        <ion-col>
+          PlaceHolder
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
 
-<ion-content padding>
-  <h2>Team Detail</h2>
+  <ion-grid>
+    <ion-item *ngFor="let game of games" (click)="gameClick($event,game)">
+      <ion-row>
+        <ion-col col-3>
+          <p>{{game.time | date:'M/d/yy'}}</p>
+          <p>{{game.time | date:'shortTime'}}</p>
+        </ion-col>
+        <ion-col col-6>
+          <p>{{game.homeAway}}{{game.opponent}}</p>
+          <p>{{game.location}}</p>
+        </ion-col>
+        <ion-col col-3>
+          <h4>{{game.scoreDisplay}}</h4>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+  </ion-grid>
 </ion-content>

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {StandingsPage} from '../standings/standings';
 import {TeamDetailPage} from '../team-detail/team-detail';
+import {MyTeamsPage} from '../my-teams/my-teams';
 
 @IonicPage()
 @Component({
@@ -10,14 +11,20 @@ import {TeamDetailPage} from '../team-detail/team-detail';
 })
 export class TeamHomePage {
 
+  team:any;
   teamDetailTab=TeamDetailPage;
   standingTab=StandingsPage;
   
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.team=this.navParams.data;
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad TeamHomePage');
+  }
+
+  goHome(){
+    this.navCtrl.popToRoot();
   }
 
 }
