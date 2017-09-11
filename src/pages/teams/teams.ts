@@ -38,7 +38,6 @@ export class TeamsPage {
             .value();
 
         this.teams=this.allTeamDivisions;
-        console.log(this.teams);
         loader.dismiss();
       })
     });

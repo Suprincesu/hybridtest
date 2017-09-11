@@ -21,7 +21,7 @@ export class TournamentsPage {
       spinner:'dots'
     });
     loader.present().then(()=>{
-      this.eliteApi.getTournaments().then(data=>{
+      this.eliteApi.getTournaments().subscribe(data=>{
         this.tournaments=data;
         loader.dismiss();        
       });

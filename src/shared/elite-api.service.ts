@@ -12,10 +12,10 @@ export class EliteApi{
     }
 
     getTournaments(){
-        return new Promise(resolve=>{
-            this.http.get(`${this.baseurl}/tournaments.json`)
-                .subscribe(res=>resolve(res.json()));
-        })
+        return this.http.get(`${this.baseurl}/tournaments.json`)
+                        .map((data)=>{
+                            return data.json();
+                        })
     }
 
     getTournamentData(tourneyId):Observable<any>{
